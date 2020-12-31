@@ -1,0 +1,92 @@
+Question 1
+
+On clone l'URL suivant dans le répertoire du lab14 : 
+
+git clone https://github.com/beagleboard/linux.git
+
+Question 2
+
+On change de branche en sélectionnant la branche 4.19 via la commande suivante :
+
+git checkout remotes/origin/4.19 -b 4.19
+
+Question 3
+
+On installes les outils de la commande tree.
+
+Question 4
+
+On affiche l'arborescence du répertoire linux avec la commande tree avec juste le premier niveau avec l'option -L 1 telle que :
+
+tree -L 1
+
+Question 5
+
+Pour analyser la taille sur le disque des différents répertoire linux, on utlise la commande :
+
+du -hs ./* et on obtient : 
+
+130M	./arch
+1.9M	./block
+52K	./certs
+4.0K	./COPYING
+100K	./CREDITS
+3.4M	./crypto
+44M	./Documentation
+537M	./drivers
+156K	./firmware
+40M	./fs
+42M	./include
+192K	./init
+260K	./ipc
+4.0K	./jenkins_build.sh
+4.0K	./Jenkinsfile
+4.0K	./Kbuild
+4.0K	./Kconfig
+9.0M	./kernel
+4.5M	./lib
+196K	./LICENSES
+464K	./MAINTAINERS
+60K	./Makefile
+3.8M	./mm
+32M	./net
+4.0K	./README
+4.0K	./README.md
+1.5M	./samples
+3.5M	./scripts
+2.9M	./security
+36M	./sound
+148K	./ti_config_fragments
+27M	./tools
+52K	./usr
+728K	./virt
+
+On constate que ce sont les drivers qui prennent le plus d'espace disque, car ce sont eux qui permettent 
+configurer et faire la liaison avec la carte. 
+
+6.
+On repère le fichier defconfig correspondant à notre carte : bb.org_defconfig 
+
+7/8. 
+On lance la commande : make bb.org_defconfig 
+
+On vérifie que le fichier defconfig a bien été généré via la commande ls -a dans le répertoire linux.
+
+Le fichier .config correspond au fichier de configuration du noyau et qui permet donc de définir les options que l'on souhaite paramétrer pour notre noyau. 
+
+9.
+On ouvre ensuite le fichier de configuration .config via l'outil xconfig afin
+de modifier les options à travers une interface graphique.
+
+On réalise les différentes modifications dans les questions suivantes :
+10/11/12/13
+
+14.
+
+On compile à nouveau le noyau et on vérifie bien que les fichiers am335x-boneblack.dtb et zImage ont été générés et c'est bien le cas .
+
+15.
+
+On copie ensuite les deux fichiers générés dans le repertoire var/lib/tftpboot;
+
+
